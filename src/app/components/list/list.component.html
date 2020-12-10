@@ -1,0 +1,28 @@
+<h1>List!</h1>
+<div class="row p-2 border my-2">
+  <ng-template [ngIf]="this.getBreweries().length == 0" [ngIfElse]="exists">
+    <div class="col-12">
+      <p>There are no breweries!</p>
+    </div>
+  </ng-template>
+  <ng-template #exists>
+    <div class="col-md-3" *ngFor="let brewery of this.getBreweries()">
+      <div class="card my-2">
+        <div class="card-body">
+          <h5 class="card-title">{{ brewery.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ brewery.brewery_type }}
+          </h6>
+          <p class="card-text">{{ brewery.city }}, {{ brewery.country }}</p>
+          <a
+            href="{{ brewery.website_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="card-link"
+            >Site</a
+          >
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

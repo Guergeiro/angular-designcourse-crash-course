@@ -1,0 +1,11 @@
+<div class="form-group">
+  <input
+    type="text"
+    class="form-control"
+    id="twoWayDatabinding"
+    name="twoWayDatabinding"
+    [ngModel]="this.getTextInput()"
+    (ngModelChange)="this.setTextInput($event)"
+  />
+  <label for="twoWayDatabinding">{{ this.getTextInput() }}</label>
+</div>

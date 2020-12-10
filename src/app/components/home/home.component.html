@@ -1,0 +1,36 @@
+<h1>Home!</h1>
+
+<div class="row p-2 border my-2">
+  <div class="col-12">
+    <p>I was liked {{ this.getClickCounter() }} times.</p>
+  </div>
+  <div class="col-12">
+    <app-increase-counter
+      (click)="this.increaseClickCounter()"
+    ></app-increase-counter>
+    <app-decrease-counter
+      (click)="this.decreaseClickCounter()"
+    ></app-decrease-counter>
+  </div>
+</div>
+<div class="row p-2 border my-2">
+  <div class="col-12">
+    <p>Two way databinding.</p>
+  </div>
+  <div class="col-12">
+    <app-form-two-way></app-form-two-way>
+  </div>
+</div>
+<div class="row p-2 border my-2" [ngClass]="this.setTemplateClasses()">
+  <div class="col-12">
+    <p>Ng Templates based on clicker value.</p>
+  </div>
+  <div class="col-12">
+    <ng-template [ngIf]="this.getClickCounter() > 4" [ngIfElse]="lower">
+      <p>The click counter <strong>IS</strong> greater than 4.</p>
+    </ng-template>
+    <ng-template #lower>
+      <p>The click counter <strong>IS NOT</strong> greater than 4.</p>
+    </ng-template>
+  </div>
+</div>
